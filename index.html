@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Janala</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="mx-auto">
+    <header>
+        <nav id="nav-1" class="mx-auto py-5 px-16 hidden flex justify-between bg-[#18181B15] border-b-2 border-[#422AD550]">
+            <div>
+                <p class="flex items-center gap-0">English <img class="w-7 h-7" src="./assets/logo.png" alt=""> জানালা
+                </p>
+            </div>
+            <div class="flex gap-2">
+                <button class="btn btn-outline btn-primary"><img src="./assets/fa-circle-question.png"
+                        alt="">FAQ</button>
+                <button class="btn btn-outline btn-primary"> <img src="./assets/fa-book-open.png" alt="">Learn</button>
+                <button class="btn btn-outline btn-primary"><img src="./assets/fa-arrow-right-from-bracket.png" alt="">
+                    Logout</button>
+            </div>
+        </nav>
+        <nav>
+            <div>
+                <div class="px-16 py-5  min-h-screen ">
+                    <div class="mx-auto flex flex-col-reverse lg:grid lg:grid-cols-2  items-center gap-4">
+
+                        <div>
+                            <h1 class="text-5xl font-bold"><span class="text-sky-400">English</span> is Easy!!</h1>
+                            <p class="py-6">
+                                আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে
+                                চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                            </p>
+                            <fieldset class="fieldset ">
+                               
+                                <input id="input-name" type="text" class="input" placeholder="Enter Your Name" />
+                                <input id="input-password" type="password" class="input" placeholder="Password is 12345" />
+                            </fieldset>
+                            <button id="btn-getStart" onclick="getStart()" class="btn btn-primary my-2">Get Started</button>
+                            
+                        </div>
+                        <div class=" flex justify-center items-center">
+                            <img src="./assets/hero-student.png" class="max-w-md rounded-lg " />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="learn-section" class="py-20">
+            <h2 class="text-center text-3xl font-bold"><span class="text-sky-400">Let's</span> Learn Vocabularies</h2>
+            <div id="learn" class="flex gap-4 justify-center py-5">
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="./script/index.js"></script>
+</body>
+
+</html>

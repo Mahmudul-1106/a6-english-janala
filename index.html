@@ -7,11 +7,32 @@
     <title>English Janala</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .active {
+            background: #422AD5;
+            color: whitesmoke;
+        }
+
+        .sticky12 {
+            overflow: hidden;
+            /* background-color: #333; */
+            position: sticky;
+            /* background-color: aqua; */
+            opacity: 20;
+            /* Set the navbar to fixed position */
+            top: 0;
+            /* Position the navbar at the top of the page */
+            width: 100%;
+            z-index: 10;
+            /* Full width */
+        }
+    </style>
 </head>
 
 <body class="mx-auto">
     <header>
-        <nav id="nav-1" class="mx-auto py-5 px-16 hidden flex justify-between bg-[#18181B15] border-b-2 border-[#422AD550]">
+        <nav id="nav-1"
+            class=" mx-auto fixed w-full top-0 z-10 py-5 px-16 hidden flex justify-between bg-[#18181B15] backdrop-blur-xl border-b-2 border-[#422AD550]">
             <div>
                 <p class="flex items-center gap-0">English <img class="w-7 h-7" src="./assets/logo.png" alt=""> জানালা
                 </p>
@@ -20,11 +41,12 @@
                 <button class="btn btn-outline btn-primary"><img src="./assets/fa-circle-question.png"
                         alt="">FAQ</button>
                 <button class="btn btn-outline btn-primary"> <img src="./assets/fa-book-open.png" alt="">Learn</button>
-                <button class="btn btn-outline btn-primary"><img src="./assets/fa-arrow-right-from-bracket.png" alt="">
+                <button onclick="showBanner()" class="btn btn-outline btn-primary"><img
+                        src="./assets/fa-arrow-right-from-bracket.png" alt="">
                     Logout</button>
             </div>
         </nav>
-        <nav>
+        <nav id="banner">
             <div>
                 <div class="px-16 py-5  min-h-screen ">
                     <div class="mx-auto flex flex-col-reverse lg:grid lg:grid-cols-2  items-center gap-4">
@@ -36,12 +58,14 @@
                                 চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
                             </p>
                             <fieldset class="fieldset ">
-                               
+
                                 <input id="input-name" type="text" class="input" placeholder="Enter Your Name" />
-                                <input id="input-password" type="password" class="input" placeholder="Password is 12345" />
+                                <input id="input-password" type="password" class="input"
+                                    placeholder="Password is 12345" />
                             </fieldset>
-                            <button id="btn-getStart" onclick="getStart()" class="btn btn-primary my-2">Get Started</button>
-                            
+                            <button id="btn-getStart" onclick="getStart()" class="btn btn-primary my-2">Get
+                                Started</button>
+
                         </div>
                         <div class=" flex justify-center items-center">
                             <img src="./assets/hero-student.png" class="max-w-md rounded-lg " />
@@ -52,13 +76,44 @@
         </nav>
     </header>
 
-    <main>
-        <section id="learn-section" class="py-20">
-            <h2 class="text-center text-3xl font-bold"><span class="text-sky-400">Let's</span> Learn Vocabularies</h2>
-            <div id="learn" class="flex gap-4 justify-center py-5">
+    <main class="mt-20">
 
+        <section id="learn-section" class=" py-5 mx-auto hidden">
+            <h2 class="text-center text-3xl font-bold"><span class="text-sky-400">Let's</span> Learn Vocabularies</h2>
+            <div id="learn" class="flex gap-4 justify-center py-8"></div>
+            <div id="lesson-message" class="text-center bg-[#F8F8F8] mx-20 py-16 rounded-lg">
+                <p class="font-normal text-sm  text-[#79716B]">
+                    আপনি এখনো কোন Lesson Select করেন নি
+                </p>
+                <p class="text-[#292524] font-medium">
+                    একটি Lesson Select করুন।
+                </p>
             </div>
         </section>
+
+        <section id="loading" class="text-center py-20 hidden">
+            <span class="loading loading-ring loading-xl"></span>
+            <span class="loading loading-ring loading-xl"></span>
+            <span class="loading loading-ring loading-xl"></span>
+        </section>
+
+        <section id="word-section" class="mx-16 bg-[#F8F8F8] p-7 grid grid-cols-3 gap-7 rounded-lg hidden">
+        </section>
+
+        <section>
+            <!-- Open the modal using ID.showModal() method -->
+            <dialog id="word_details" class="modal">
+                <div class="modal-box">
+                    <h3 class="text-lg font-bold">Hello!</h3>
+                    <p class="py-4">Press ESC key or click outside to close</p>
+                </div>
+                <form method="dialog" class="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
+        </section>
+
+
     </main>
 
     <footer>

@@ -81,6 +81,17 @@
         <section id="learn-section" class=" py-5 mx-auto hidden">
             <h2 class="text-center text-3xl font-bold"><span class="text-sky-400">Let's</span> Learn Vocabularies</h2>
             <div id="learn" class="flex gap-4 justify-center py-8"></div>
+
+            <!-- Search area -->
+            <fieldset class="fieldset flex justify-center items-center bg-lime-200 border-base-300 rounded-box max-w-xs border p-4 mb-10 mx-auto">
+                <div class="join">
+                    <input id="search-input" type="text" class="input join-item" placeholder="Search Vocabulary" />
+                    <button onclick="loadSearch()" class="btn join-item">Search</button>
+                </div>
+            </fieldset>
+
+
+
             <div id="lesson-message" class="text-center bg-[#F8F8F8] mx-20 py-16 rounded-lg">
                 <p class="font-normal text-sm  text-[#79716B]">
                     আপনি এখনো কোন Lesson Select করেন নি
@@ -89,6 +100,9 @@
                     একটি Lesson Select করুন।
                 </p>
             </div>
+
+
+
         </section>
 
         <section id="loading" class="text-center py-20 hidden">
@@ -97,15 +111,21 @@
             <span class="loading loading-ring loading-xl"></span>
         </section>
 
+
+
         <section id="word-section" class="mx-16 bg-[#F8F8F8] p-7 grid grid-cols-3 gap-7 rounded-lg hidden">
         </section>
 
+
+
+        <!-- Word Details Modal -->
         <section>
             <!-- Open the modal using ID.showModal() method -->
             <dialog id="word_details" class="modal">
                 <div class="modal-box">
-                    <h3 class="text-lg font-bold">Hello!</h3>
-                    <p class="py-4">Press ESC key or click outside to close</p>
+                    <div id="word-contant"></div>
+                    <div id="synonyms" class="flex  gap-2 pb-5"></div>
+                    <p class="py-4 bg-slate-100 text-center rounded-lg"> Press ESC key or click outside to close</p>
                 </div>
                 <form method="dialog" class="modal-backdrop">
                     <button>close</button>

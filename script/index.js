@@ -1,5 +1,10 @@
 console.log('js file added.')
 
+function scrollFooter() {
+    const footer = document.getElementById('footer');
+    footer.scrollIntoView({ behavior: 'smooth' });
+}
+
 function loadSearch() {
     const url = 'https://openapi.programming-hero.com/api/words/all';
     fetch(url)
@@ -55,6 +60,7 @@ function hideBanner() {
     document.getElementById('nav-1').classList.remove('hidden');
     document.getElementById('banner').classList.add('hidden');
     document.getElementById('learn-section').classList.remove('hidden');
+    document.getElementById('footer').classList.remove('hidden');
 
 }
 
@@ -63,6 +69,7 @@ function showBanner() {
     document.getElementById('banner').classList.remove('hidden');
     document.getElementById('learn-section').classList.add('hidden');
     document.getElementById('word-section').classList.add('hidden');
+    document.getElementById('footer').classList.add('hidden');
 }
 
 
@@ -99,7 +106,6 @@ function loadLearn() {
 }
 
 function loadWordsLebels(id) {
-    document.getElementById('lesson-message').classList.add('hidden');
     showLoader();
     const url = (`https://openapi.programming-hero.com/api/level/${id}`);
     fetch(url)
@@ -107,8 +113,7 @@ function loadWordsLebels(id) {
         .then(data => {
             removeActive();
             document.getElementById(`btn-${id}`).classList.add('active');
-            displayWordsLebel(data.data)
-            //   test(data.data);  
+            displayWordsLebel(data.data);
         })
 }
 
@@ -125,7 +130,7 @@ const displayLearn = (info) => {
 }
 
 const displayWordsLebel = (words) => {
-    // document.getElementById('word-section').classList.remove('hidden')
+    document.getElementById('lesson-message').classList.add('hidden');
     const wordSection = document.getElementById('word-section');
     wordSection.innerHTML = '';
 
@@ -144,6 +149,17 @@ const displayWordsLebel = (words) => {
             `
         console.log('It is empty')
         return;
+    }
+
+    if (words.length === 1) {
+        removeActive();
+        document.getElementById('word-section').classList.remove('grid');
+        document.getElementById('word-section').classList.add('px-10', 'max-w-md', 'mx-auto');
+    }
+    else {
+        document.getElementById('word-section').classList.add('grid');
+        document.getElementById('word-section').classList.remove('px-10', 'max-w-md', 'mx-auto');
+
     }
 
     for (let word of words) {
@@ -173,8 +189,10 @@ const displayWordDetails = (data) => {
     document.getElementById('word-contant').innerHTML = `
         <h3 class="text-xl font-bold flex items-center ">${data.word} (<img class="w-4 h-4" src="./assets/imicrophone-.png" alt=""> : ${data.pronunciation})</h3>
         <h5 class="text-lg font-semibold pt-5">Meaning</h5>
-        <p>${data.meaning}</p>
-
+        <p class="text-sm">${data.meaning == null ?
+            'অর্থ পাওয়া যায় নি' : `${data.meaning}`} 
+        </p>
+        
         <h5 class="text-lg font-semibold pt-5">Example</h5>
         <p>${data.sentence}</p>
 
@@ -202,6 +220,7 @@ const displayWordDetails = (data) => {
 
 function displaySearch(words) {
     let search = document.getElementById('search-input').value;
+    let searchWord = [];
     if (search == '') {
         alert('Please entry word.')
         return;
@@ -209,7 +228,8 @@ function displaySearch(words) {
 
     for (let word of words) {
         if (word.word.toLowerCase() === search.toLowerCase()) {
-            loadWordDetails(word.id);
+            searchWord.push(word);
+            displayWordsLebel(searchWord);
             document.getElementById('search-input').value = '';
             return;
         }
@@ -219,5 +239,3 @@ function displaySearch(words) {
     document.getElementById('search-input').value = '';
 }
 
-// loadLearn();
-// loadWordsLebels(5);

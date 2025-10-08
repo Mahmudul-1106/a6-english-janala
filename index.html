@@ -38,7 +38,7 @@
                 </p>
             </div>
             <div class="flex gap-2">
-                <button class="btn btn-outline btn-primary"><img src="./assets/fa-circle-question.png"
+                <button onclick="scrollFooter()" class="btn btn-outline btn-primary"><img src="./assets/fa-circle-question.png"
                         alt="">FAQ</button>
                 <button class="btn btn-outline btn-primary"> <img src="./assets/fa-book-open.png" alt="">Learn</button>
                 <button onclick="showBanner()" class="btn btn-outline btn-primary"><img
@@ -83,7 +83,8 @@
             <div id="learn" class="flex gap-4 justify-center py-8"></div>
 
             <!-- Search area -->
-            <fieldset class="fieldset flex justify-center items-center bg-lime-200 border-base-300 rounded-box max-w-xs border p-4 mb-10 mx-auto">
+            <fieldset
+                class="fieldset flex justify-center items-center bg-lime-200 border-base-300 rounded-box max-w-xs border p-4 mb-5 mx-auto">
                 <div class="join">
                     <input id="search-input" type="text" class="input join-item" placeholder="Search Vocabulary" />
                     <button onclick="loadSearch()" class="btn join-item">Search</button>
@@ -111,12 +112,8 @@
             <span class="loading loading-ring loading-xl"></span>
         </section>
 
-
-
-        <section id="word-section" class="mx-16 bg-[#F8F8F8] p-7 grid grid-cols-3 gap-7 rounded-lg hidden">
+        <section id="word-section" class="mx-16  bg-[#F8F8F8] p-7 grid grid-cols-3 gap-7 rounded-lg hidden">
         </section>
-
-
 
         <!-- Word Details Modal -->
         <section>
@@ -133,11 +130,35 @@
             </dialog>
         </section>
 
-
     </main>
 
     <footer>
+        <div id="footer" class="hidden mt-5 mx-auto py-10 px-16 backdrop-blur-xl border-t-2 border-[#422AD550]">
+            <div>
+                <p class="flex items-center gap-0">English <img class="w-7 h-7" src="./assets/logo.png" alt=""> জানালা
+                </p>
+            </div>
 
+
+            <div class="flex justify-between items-center py-2">
+                <div>
+                    <p class="flex items-center gap-0"> ইংরেজি শিখুন সহজে </p>
+                    <p class="text-[#00000095] text-sm">Providing ED-Tech Applications since 2025</p>
+                </div>
+                <div>
+                    <p class="text-[#00000095]">Follow Us</p>
+                    <div class="flex gap-2 pt-1 items-center">
+                        <a href="https://web.facebook.com/?_rdc=1&_rdr#" target="_blank"><img
+                                src="./assets/fb-thumb.png" alt=""></a>
+                        <a href="https://www.youtube.com/" target="_blank"><img src="./assets/youtube-thumb.png"
+                                alt=""></a>
+                        <a href="https://www.instagram.com/" target="_blank"><img src="./assets/instagram-thumb.png"
+                                alt=""></a>
+                        <a href="https://github.com/" target="_blank"><img src="./assets/github-thumb.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="./script/index.js"></script>

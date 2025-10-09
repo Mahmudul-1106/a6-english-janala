@@ -7,24 +7,11 @@
     <title>English Janala</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .active {
             background: #422AD5;
             color: whitesmoke;
-        }
-
-        .sticky12 {
-            overflow: hidden;
-            /* background-color: #333; */
-            position: sticky;
-            /* background-color: aqua; */
-            opacity: 20;
-            /* Set the navbar to fixed position */
-            top: 0;
-            /* Position the navbar at the top of the page */
-            width: 100%;
-            z-index: 10;
-            /* Full width */
         }
     </style>
 </head>
@@ -38,9 +25,9 @@
                 </p>
             </div>
             <div class="flex gap-2">
-                <button onclick="scrollFooter()" class="btn btn-outline btn-primary"><img src="./assets/fa-circle-question.png"
-                        alt="">FAQ</button>
-                <button class="btn btn-outline btn-primary"> <img src="./assets/fa-book-open.png" alt="">Learn</button>
+                <button onclick="scrollFaq()" class="btn btn-outline btn-primary"><img
+                        src="./assets/fa-circle-question.png" alt="">FAQ</button>
+                <button onclick="scrollLearn()" class="btn btn-outline btn-primary"> <img src="./assets/fa-book-open.png" alt="">Learn</button>
                 <button onclick="showBanner()" class="btn btn-outline btn-primary"><img
                         src="./assets/fa-arrow-right-from-bracket.png" alt="">
                     Logout</button>
@@ -84,10 +71,12 @@
 
             <!-- Search area -->
             <fieldset
-                class="fieldset flex justify-center items-center bg-lime-200 border-base-300 rounded-box max-w-xs border p-4 mb-5 mx-auto">
+                class="fieldset flex justify-center items-center border-base-300 rounded-box max-w-xs border p-4 mb-5 mx-auto">
                 <div class="join">
-                    <input id="search-input" type="text" class="input join-item" placeholder="Search Vocabulary" />
-                    <button onclick="loadSearch()" class="btn join-item">Search</button>
+                    <input id="search-input" type="text" class="input join-item rounded-md"
+                        placeholder="Search Vocabulary" />
+                    <button onclick="loadSearch()"
+                        class="ml-1 btn join-item rounded-md bg-[#422AD5] text-white">Search</button>
                 </div>
             </fieldset>
 
@@ -122,12 +111,77 @@
                 <div class="modal-box">
                     <div id="word-contant"></div>
                     <div id="synonyms" class="flex  gap-2 pb-5"></div>
-                    <p class="py-4 bg-slate-100 text-center rounded-lg"> Press ESC key or click outside to close</p>
+                    <div class="modal-action flex justify-start mx-auto">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn bg-[#422AD5] text-white">Complete Learning</button>
+                        </form>
+                    </div>
                 </div>
-                <form method="dialog" class="modal-backdrop">
+
+                <!-- <form method="dialog" class="modal-backdrop">
                     <button>close</button>
-                </form>
+                </form> -->
             </dialog>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="mx-16 my-10 p-10 flex flex-col gap-2 bg-slate-100 rounded-lg">
+            <p>
+            <h2 class="text-center text-3xl font-bold shadow-xl py-5 rounded-lg"><span
+                    class="text-sky-400">Frequently</span> Asked Questions</h2>
+            </p>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300">
+                <input type="radio" name="my-accordion-3" checked="checked" />
+                <div class="collapse-title font-semibold">How do I create an account?</div>
+                <div class="collapse-content text-sm">
+                    <p>
+                        <span class="underline font-bold">var:</span> <br>
+
+                    Scope: var is function-scoped, meaning it is available throughout the function where it is declared
+                    (or globally if declared outside of a function). It is not block-scoped. <br>
+
+                    Reassignability: Variables declared with var can be reassigned. <br>
+
+                    Hoisting: var declarations are hoisted to the top of their scope. This means that the declaration is
+                    moved to the top, but the value assignment remains where it is. <br>
+
+                    <span class="underline font-bold"> let:</span> <br>                    
+                   
+
+                    Scope: let is block-scoped, meaning it is only available within the block (such as a loop or if
+                    statement) where it is declared. <br>
+
+                    Reassignability: Variables declared with let can be reassigned. <br>
+
+                    Hoisting: Like var, let is hoisted, but not initialized. This means it enters a "temporal dead zone"
+                    where you can't use the variable before it's declared (you’ll get a ReferenceError). <br>
+
+                    <span class="underline font-bold">const:</span> <br>
+                    
+
+                    Scope: Like let, const is block-scoped. <br>
+
+                    Reassignability: Variables declared with const cannot be reassigned. Once a value is assigned to a
+                    const variable, it’s fixed. <br>
+
+                    Hoisting: Like let, const is hoisted but also enters the "temporal dead zone". It must be
+                    initialized at the time of declaration. <br>
+                    </p>
+                </div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">I forgot my password. What should I do?</div>
+                <div class="collapse-content text-sm">Click on "Forgot Password" on the login page and follow the
+                    instructions sent to your email.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">How do I update my profile information?</div>
+                <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make
+                    changes.</div>
+            </div>
         </section>
 
     </main>

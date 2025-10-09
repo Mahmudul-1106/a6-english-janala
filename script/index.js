@@ -1,7 +1,12 @@
 console.log('js file added.')
 
-function scrollFooter() {
-    const footer = document.getElementById('footer');
+function scrollFaq() {
+    const footer = document.getElementById('faq');
+    footer.scrollIntoView({ behavior: 'smooth' });
+}
+
+function scrollLearn() {
+    const footer = document.getElementById('learn-section');
     footer.scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -87,11 +92,20 @@ function getStart() {
     if (name != '' && password === '12345') {
         hideBanner();
         loadLearn();
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfully Logged In",
+            showConfirmButton: false,
+            timer: 2500
+        });
     }
 
     else {
-        alert('Please provide correct Name Or Password');
-        return;
+        Swal.fire({
+            icon: "error",
+            text: "Please provide correct Name Or Password",
+        });
     }
 }
 
@@ -222,7 +236,10 @@ function displaySearch(words) {
     let search = document.getElementById('search-input').value;
     let searchWord = [];
     if (search == '') {
-        alert('Please entry word.')
+         Swal.fire({
+            icon: "warning",
+            text: "Please provide a word",
+        });
         return;
     }
 
@@ -234,8 +251,11 @@ function displaySearch(words) {
             return;
         }
     }
-
-    alert('Sorry, Word not found');
+    
+    Swal.fire({
+            icon: "info",
+            text: "Sorry, Word not found",
+        });
     document.getElementById('search-input').value = '';
 }
 

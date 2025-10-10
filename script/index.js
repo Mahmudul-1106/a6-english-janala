@@ -59,13 +59,11 @@ function hideLoader() {
 
 }
 
-
-
 function hideBanner() {
     document.getElementById('nav-1').classList.remove('hidden');
     document.getElementById('banner').classList.add('hidden');
     document.getElementById('learn-section').classList.remove('hidden');
-    document.getElementById('footer').classList.remove('hidden');
+    document.getElementById('faq').classList.remove('hidden');
 
 }
 
@@ -74,7 +72,7 @@ function showBanner() {
     document.getElementById('banner').classList.remove('hidden');
     document.getElementById('learn-section').classList.add('hidden');
     document.getElementById('word-section').classList.add('hidden');
-    document.getElementById('footer').classList.add('hidden');
+    document.getElementById('faq').classList.add('hidden');
 }
 
 
@@ -97,7 +95,7 @@ function getStart() {
             icon: "success",
             title: "Successfully Logged In",
             showConfirmButton: false,
-            timer: 2500
+            timer: 2000
         });
     }
 
@@ -236,7 +234,7 @@ function displaySearch(words) {
     let search = document.getElementById('search-input').value;
     let searchWord = [];
     if (search == '') {
-         Swal.fire({
+        Swal.fire({
             icon: "warning",
             text: "Please provide a word",
         });
@@ -251,11 +249,11 @@ function displaySearch(words) {
             return;
         }
     }
-    
+
     Swal.fire({
-            icon: "info",
-            text: "Sorry, Word not found",
-        });
+        icon: "info",
+        text: "Sorry, Word not found",
+    });
     document.getElementById('search-input').value = '';
 }
 

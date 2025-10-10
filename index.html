@@ -5,10 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Janala</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap"
+        rel="stylesheet">
     <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+
+
         .active {
             background: #422AD5;
             color: whitesmoke;
@@ -27,7 +38,8 @@
             <div class="flex gap-2">
                 <button onclick="scrollFaq()" class="btn btn-outline btn-primary"><img
                         src="./assets/fa-circle-question.png" alt="">FAQ</button>
-                <button onclick="scrollLearn()" class="btn btn-outline btn-primary"> <img src="./assets/fa-book-open.png" alt="">Learn</button>
+                <button onclick="scrollLearn()" class="btn btn-outline btn-primary"> <img
+                        src="./assets/fa-book-open.png" alt="">Learn</button>
                 <button onclick="showBanner()" class="btn btn-outline btn-primary"><img
                         src="./assets/fa-arrow-right-from-bracket.png" alt="">
                     Logout</button>
@@ -126,7 +138,8 @@
         </section>
 
         <!-- FAQ Section -->
-        <section id="faq" class="hidden mx-16 mt-10 mb-10 pt-14 px-10 pb-10 flex flex-col gap-2 bg-slate-100 rounded-lg">
+        <section id="faq"
+            class="hidden mx-16 mt-10 mb-10 pt-14 px-10 pb-10 flex flex-col gap-2 bg-slate-100 rounded-lg">
             <p>
             <h2 class="text-center text-3xl font-bold shadow-xl py-5 rounded-lg"><span
                     class="text-sky-400">Frequently</span> Asked Questions</h2>
@@ -138,35 +151,39 @@
                     <p>
                         <span class="underline font-bold">var:</span> <br>
 
-                    Scope: var is function-scoped, meaning it is available throughout the function where it is declared
-                    (or globally if declared outside of a function). It is not block-scoped. <br>
+                        Scope: var is function-scoped, meaning it is available throughout the function where it is
+                        declared
+                        (or globally if declared outside of a function). It is not block-scoped. <br>
 
-                    Reassignability: Variables declared with var can be reassigned. <br>
+                        Reassignability: Variables declared with var can be reassigned. <br>
 
-                    Hoisting: var declarations are hoisted to the top of their scope. This means that the declaration is
-                    moved to the top, but the value assignment remains where it is. <br>
+                        Hoisting: var declarations are hoisted to the top of their scope. This means that the
+                        declaration is
+                        moved to the top, but the value assignment remains where it is. <br>
 
-                    <span class="underline font-bold"> let:</span> <br>                    
-                   
+                        <span class="underline font-bold"> let:</span> <br>
 
-                    Scope: let is block-scoped, meaning it is only available within the block (such as a loop or if
-                    statement) where it is declared. <br>
 
-                    Reassignability: Variables declared with let can be reassigned. <br>
+                        Scope: let is block-scoped, meaning it is only available within the block (such as a loop or if
+                        statement) where it is declared. <br>
 
-                    Hoisting: Like var, let is hoisted, but not initialized. This means it enters a "temporal dead zone"
-                    where you can't use the variable before it's declared (you’ll get a ReferenceError). <br>
+                        Reassignability: Variables declared with let can be reassigned. <br>
 
-                    <span class="underline font-bold">const:</span> <br>
-                    
+                        Hoisting: Like var, let is hoisted, but not initialized. This means it enters a "temporal dead
+                        zone"
+                        where you can't use the variable before it's declared (you’ll get a ReferenceError). <br>
 
-                    Scope: Like let, const is block-scoped. <br>
+                        <span class="underline font-bold">const:</span> <br>
 
-                    Reassignability: Variables declared with const cannot be reassigned. Once a value is assigned to a
-                    const variable, it’s fixed. <br>
 
-                    Hoisting: Like let, const is hoisted but also enters the "temporal dead zone". It must be
-                    initialized at the time of declaration. <br>
+                        Scope: Like let, const is block-scoped. <br>
+
+                        Reassignability: Variables declared with const cannot be reassigned. Once a value is assigned to
+                        a
+                        const variable, it’s fixed. <br>
+
+                        Hoisting: Like let, const is hoisted but also enters the "temporal dead zone". It must be
+                        initialized at the time of declaration. <br>
                     </p>
                 </div>
             </div>
@@ -179,12 +196,18 @@
             <div class="collapse collapse-plus bg-base-100 border border-base-300">
                 <input type="radio" name="my-accordion-3" />
                 <div class="collapse-title font-semibold"> how JavaScript Promises work?</div>
-                <div class="collapse-content text-sm">JavaScript Promises are objects representing the eventual completion or failure of an asynchronous operation and its resulting value. They provide a structured way to handle asynchronous code, improving readability and error handling compared to traditional callback-based approaches.</div>
+                <div class="collapse-content text-sm">JavaScript Promises are objects representing the eventual
+                    completion or failure of an asynchronous operation and its resulting value. They provide a
+                    structured way to handle asynchronous code, improving readability and error handling compared to
+                    traditional callback-based approaches.</div>
             </div>
             <div class="collapse collapse-plus bg-base-100 border border-base-300">
                 <input type="radio" name="my-accordion-3" />
                 <div class="collapse-title font-semibold"> how closures work in JavaScript?</div>
-                <div class="collapse-content text-sm">Closures in JavaScript are a fundamental concept enabling powerful patterns like data privacy and function factories. A closure is formed when a function is defined within another function and the inner function retains access to the outer function's scope, even after the outer function has finished executing.</div>
+                <div class="collapse-content text-sm">Closures in JavaScript are a fundamental concept enabling powerful
+                    patterns like data privacy and function factories. A closure is formed when a function is defined
+                    within another function and the inner function retains access to the outer function's scope, even
+                    after the outer function has finished executing.</div>
             </div>
         </section>
 
